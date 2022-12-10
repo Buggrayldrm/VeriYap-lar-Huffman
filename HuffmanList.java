@@ -8,15 +8,12 @@ public class HuffmanList {
         HashMap<String, String> degerler = new HashMap<String, String>();
         Scanner inputlar = new Scanner(System.in);//Degerlerin alınması
         String[] dizi = new String[8];//Alınan stringlerin atıldığı dizi
-        String b;
+        String b,tmp1 = "";
         String[] output = new String[8];
         String[] harfler = new String[4];
         int[] frekans = new int[4];//Frekansların tutulduğu liste
-        int uzunluk = dizi.length;
-        int Esayisi = 0;
-        int Lsayisi = 0;
-        int İsayisi = 0;
-        int Fsayisi = 0;
+        int uzunluk = dizi.length,tmp = 0;
+        int Esayisi = 0,Lsayisi = 0,İsayisi = 0,Fsayisi = 0;
         System.out.println("Sadece E L İ F harflerini içeren değerler giriniz(Tüm değerler büyük olmalı): ");
 
         for (int i = 0; i < uzunluk; i++) {// Karakterler teker teker diziye atılıyor.
@@ -27,7 +24,6 @@ public class HuffmanList {
             System.out.print(dizi[j] + " ");//Karakterlerin ekrana yazdırılması
         }
         System.out.println(" ");
-
         for (int i = 0; i < uzunluk; i++) {//İnputlara göre frekans degerlerininin arttırlması.
             if (dizi[i].equals("E")) {
                 Esayisi++;
@@ -42,9 +38,6 @@ public class HuffmanList {
                 Fsayisi++;
             }
         }
-        int tmp = 0, k = 0, l = 0;
-        String tmp1 = "";
-
         harfler[0] = "E";
         harfler[1] = "L";
         harfler[2] = "İ";
@@ -54,8 +47,8 @@ public class HuffmanList {
         frekans[1] = Lsayisi;
         frekans[2] = İsayisi;
         frekans[3] = Fsayisi;
-        for (k = 0; k < frekans.length; k++) {//Frekansların küçükten büyüğe sıralanması.
-            for (l = 0; l < frekans.length - 1; l++) {
+        for (int k = 0; k < frekans.length; k++) {//Frekansların küçükten büyüğe sıralanması.
+            for (int l = 0; l < frekans.length - 1; l++) {
                 if (frekans[l] > frekans[l + 1]) {
                     tmp = frekans[l];
                     frekans[l] = frekans[l + 1];
